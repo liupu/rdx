@@ -1,1 +1,2 @@
-# rdx
+#### rdx
+#### react-redux study
