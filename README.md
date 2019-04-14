@@ -98,5 +98,74 @@ import { combineReducers } from 'redux';
 import * as reducers from './reducers';
 const reducer = combineReducers(reducers)
 ```
+#### react-redux
+`react-redux将组件分为两类：UI组件和容器组件`
+
+`UI组件`:
+
+`UI组件自负责UI的呈现，没有状态，所有参数都有this.props提供，不使用redux的api`
+
+`容器组件`:
+
+`容器组件负责数据和业务逻辑，带有内部状态，使用redux的api`
+
+`react-redux的api`
+
+`connect()`
+
+`connect()用于从UI组件生成容器组价`
+
+`connect()方法的作用`：
+
+`将外部的数据即state对象转化为UI组件的参数，使用mapStateToProps函数`
+
+`将用户发出的动作变为action对象，从ui组件传出去，使用mapDispatchToProps函数`
+
+```
+import { connect } from 'react-redux';
+...
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
+```
+`App就是UI组件，export出去的就是react-redux通过connect()方法自动生成的容器组件`
+
+`mapStateToProps()`
 
 
+
+`mapStateToProps()执行后返回一个对象`
+
+`mapStateToProps函数时`*connect()*`的第一个参数mapStateToProps函数，用来建立一个从state对象到props对象的映射关系`
+
+`mapStateToProps函数会订阅`*store*`每当state更新的时候，就会自动执行，重新计算UI组件的参数，从而触发UI组件的重新渲染`
+
+`mapStateToProps函数的第一个参数总是state对象，还可以使用第二个参数，代表容器组件的props对象`
+
+`mapDispatchToProps函数是`*connect()*`的第二个参数，用来建立UI组件的actions到store.dispatch方法的映射，定义了哪些用户的操作应该当做Action,传给store`
+
+`在mapDispatchToProps()方法中可以调用bindActionCreators()方法将actions和dispatch进行绑定`
+```
+const mapStateToProps = (state) => {
+    return state;
+};
+
+const mapDispatchToProps = (dispatch) =>{
+    return {actions:bindActionCreators(actions,dispatch)}
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)
+```
+*简而言之*
+
+*mapStateToProps()（参数是state）是将State对象传给ui组件，使ui组件获得state对象*
+
+*mapDispatchToProps()（参数是dispatch）是将actions对象传递给ui组件，当用户操作view时，可以发送action*
+
+*bindActionCreators()（参数是actions，dispatch）是将actions与store.dispatch()进行绑定，在mapDispatchToProps，返回绑定了store.dispatch()的actions*
+
+*使用react-redux后，不用再手动调用store.getState()、store.dispatch()、store.subscribe()，这些操作由react-redux的Provider组件的属性store={ store }和connect函数的参数mapStateToProps、mapDispatchToProps实现*

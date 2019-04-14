@@ -4,6 +4,11 @@ import * as actions from '../actions';
 import { bindActionCreators } from 'redux';
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        console.log(props)
+    }
+    
     addAsInputNum(){
         const number = Number(this.refs.inputNum.value);
         this.props.actions.addAsInputNum(number);
@@ -24,13 +29,25 @@ class App extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return state;
+};
+
+const mapDispatchToProps = (dispatch) =>{
+    return {actions:bindActionCreators(actions,dispatch)}
+}
+// export default connect(
+//     (state) => {
+//         return state;
+//     },
+//     (dispatch) => {
+//         return {
+//             actions:bindActionCreators(actions,dispatch)
+//         }
+//     }
+// )(App)
 export default connect(
-    (state) => {
-        return state;
-    },
-    (dispatch) => {
-        return {
-            actions:bindActionCreators(actions,dispatch)
-        }
-    }
+    mapStateToProps,
+    mapDispatchToProps
 )(App)
