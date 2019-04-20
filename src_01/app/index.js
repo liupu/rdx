@@ -7,12 +7,13 @@ export default class App extends Component {
         this.refs.inputNum.value = '';
     }
     render() {
+        const { value, addFun, minusFun } = this.props;
         return (
             <div>
-                <p>{this.props.value}</p>
-                <button onClick = {this.props.addFun}>++</button>
+                <p>{ value }</p>
+                <button onClick = { addFun }>++</button>
                 {` `}
-                <button onClick = {this.props.minusFun}>--</button>
+                <button onClick = { minusFun }>--</button>
                 {` `}
                 <input type='text' placeholder='Please input a number' ref='inputNum'/>
                 {` `}

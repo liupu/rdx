@@ -1,5 +1,5 @@
 export default (state = {num: 0}, action) => {
-    let { type } = action;
+    const { type } = action;
     switch(type){
         case 'ADD':
         return {...state, num:state.num + 1 };
