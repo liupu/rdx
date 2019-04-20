@@ -15,12 +15,13 @@ class App extends Component {
         this.refs.inputNum.value = '';
     }
     render() {
+        const { addFun , minusFun } = this.props.actions;
         return (
             <div>
                 <p>{this.props.num}</p>
-                <button onClick = {this.props.actions.addFun}>++</button>
+                <button onClick = { addFun }>++</button>
                 {` `}
-                <button onClick = {this.props.actions.minusFun}>--</button>
+                <button onClick = { minusFun }>--</button>
                 {` `}
                 <input type='text' placeholder='Please input a number' ref='inputNum'/>
                 {` `}
