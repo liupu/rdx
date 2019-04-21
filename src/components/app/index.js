@@ -10,6 +10,17 @@ class App extends Component {
         super(props)
         console.log(props)
     }
+    // componentDidMount(){
+    //     alert('1')
+    //     const inputNum = this.refs.inputNum.value;
+    //     this.props.actions.changeR(inputNum);
+    // }
+    handleChange(){
+        console.log('123')
+        const inputNum = this.refs.inputNum.value;
+        console.log(inputNum);
+        this.props.actions.changeR(inputNum);
+    }
     render() {
         const { r, g, b } = this.props;
         const { changeR, changeG, changeB } = this.props.actions;
@@ -18,17 +29,11 @@ class App extends Component {
                 <div className='box' style={{ "backgroundColor": `rgb(${r},${g},${b})` }}>
                     {r},{g},{b}
                 </div>
-                {/* <button onClick={changeR}>点击我改变R的值</button>
-                <br />
-                <button onClick={changeG}>点击我改变G的值</button>
-                <br />
-                <button onClick={changeB}>点击我改变B的值</button>  */}
                 <div className='container'>
                     <input type='number' /> 
-                    <input type='range' />
-                    <input type='number' />
+                    <input type='range' onChange={this.handleChange.bind(this)}/>
+                    <input type='number' ref='inputNum'/>
                 </div>
-
             </div>
         )
     }
