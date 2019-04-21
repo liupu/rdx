@@ -1,3 +1,3 @@
-export const addFun = () => ({type:'ADD'});
-export const minusFun = () => ({type:'MINUS'});
-export const addAsInputNum = (number) => ({type:'ADDASINPUT',number});
+export const changeR = () => ({ type: 'R' });
+export const changeG = () => ({ type: 'G' });
+export const changeB = () => ({ type: 'B' });

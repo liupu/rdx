@@ -1,0 +1,24 @@
+.box{
+    box-sizing:border-box;
+    width:200px;
+    height:200px;
+    border:1px solid #eee;
+}
+.container{
+    position:relative;
+}
+input[type='range']{
+    margin-left:15px;
+    padding:0;
+}
+input[type='number']{
+    position: absolute;
+    top: 0;
+    width: 10px !important;
+    margin: 2px -1px 0;
+    height: 17px;
+    padding: 0;
+}
+button{
+    margin:10px 30px;
+}
