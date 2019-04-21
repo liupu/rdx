@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -18,17 +19,16 @@ class App extends Component {
                 <div className='box' style={{ "backgroundColor": `rgb(${r},${g},${b})` }}>
                     {r},{g},{b}
                 </div>
-                {/* <button onClick={changeR}>点击我改变R的值</button>
+                <button onClick={changeR}>点击我改变R的值</button>
                 <br />
                 <button onClick={changeG}>点击我改变G的值</button>
                 <br />
-                <button onClick={changeB}>点击我改变B的值</button>  */}
-                <div className='container'>
+                <button onClick={changeB}>点击我改变B的值</button>
+                {/* <div className='container'>
                     <input type='number' /> 
                     <input type='range' />
                     <input type='number' />
-                </div>
-
+                </div> */}
             </div>
         )
     }
