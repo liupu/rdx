@@ -24,14 +24,13 @@ export default (state, action) => {
     const { type } = action;
     switch (type) {
         case 'ADD':
-            const s = state;
-            s.cart[action.index].amount++;
-            console.log(JSON.stringify(state))
-            return s;
+            const addObj = JSON.parse(JSON.stringify(state));
+            addObj.cart[action.index].amount++;
+            return addObj;
         case 'MINUS':
-            const ss = state;
-            s.cart[action.index].amount--;
-            return ss;
+            const minusObj = JSON.parse(JSON.stringify(state));
+            minusObj.cart[action.index].amount > 0 ? minusObj.cart[action.index].amount-- : 0;
+            return minusObj;
         default:
             return state;
     }
