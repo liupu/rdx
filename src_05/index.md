@@ -1,39 +1,12 @@
-#### 未完待续
-#### color panel
+#### shopping car demo
+`完成了商品数量添加、商品数量减少、商品数量编辑、商品的移除`
 
+`待完善效果是添加keydown事件`
 
-#### 模板字字符串的复习
-`es6中引入了模板字面量`
+`需要加强reducer state数据处理的一些操作功能`
 
-`模板字面量是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能`
+`使用...以及数组的map方法 filter方法等`
 
-`语法`
+`总结：凡是涉及到数据的变化，都应该放在reducer中处理，要想改动数据就要发送action`
 
-```
-`string text`
-`string text line 1`
-`string text ${expression} string text`
-tag `string text ${expression} string text`
-```
-
-`描述`
-
-`模板字符串使用反引号（``）来代替普通字符串中的双引号和单引号，模板字符串可以包含特定的语法（${expression}）占位符`
-
-#### react组件中使用style需要注意事项
-
-`style的值要用两个大括号包含，内部可以使用模板字符串表示一个变动的属性,示例如下：`
-
-```
-<div style={{"backgroundColor":`rgb(${this.props.r},${this.props.g},${this.props.b})`}}></div>
-```
-```
-简写：
-const { r, g, b} = this.props;
-<div style={{"backgroundColor":`rgb(${r},${g},${b})`}}></div>
-```
-`最终得到的结果是：`
-
-```
-style="background-color: rgb(20, 220, 220);"
-```
+`有些组件需要或得全部的state而有些只需要通过父组件的props属性取得需要的值`

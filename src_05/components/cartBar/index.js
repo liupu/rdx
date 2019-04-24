@@ -11,7 +11,6 @@ class CartBar extends Component {
     }
     handleChange() {
         let editValue = this.refs.txt.value;
-        //alert(editValue)
         this.props.actions.editFun(editValue,this.props.index)
     }
     handleFocus(){
@@ -22,7 +21,6 @@ class CartBar extends Component {
             this.refs.txt.value=this.props.item.amount;
         }
     }
-
     render() {
         const { name, price, amount } = this.props.item;
         return (
