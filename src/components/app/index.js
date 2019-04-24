@@ -15,7 +15,7 @@ class App extends Component{
                 <p>Todo List</p>
                 <Header actions={this.props.actions}/>
                 <TodoListMain todos={this.props.todos} actions={this.props.actions}/>
-                <Info />
+                <Info todos={this.props.todos}/>
             </div>
         )
     }
