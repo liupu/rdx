@@ -1,3 +1,4 @@
-input[type='value']{
+input[type='text']{
     text-align:center;
+    width:30px;
 }

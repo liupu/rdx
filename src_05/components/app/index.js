@@ -13,7 +13,7 @@ class App extends Component {
         this.props.cart.forEach(function (item) {
             sum += item.price * item.amount;
         })
-        return sum;
+        return sum > 0 ? <span>总价是：{sum}</span> : <span>购物车中没有商品请前往商品详情页添加</span>
     }
     render() {
         const { cart } = this.props;
@@ -26,7 +26,7 @@ class App extends Component {
             <div>
                 <p>购物车</p>
                 {CarList}
-                <p>总价：{this.getSum()}</p>
+                <p>{this.getSum()}</p>
             </div>
         )
     }

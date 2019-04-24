@@ -5,7 +5,7 @@ const config = {
     entry:'./src/index.js',
     devServer:{
         contentBase:'./dist',
-        port:3000
+        port:8080
     },
     devtool: 'inline-source-map',
     output:{
