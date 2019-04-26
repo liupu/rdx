@@ -7,13 +7,6 @@ class TodoListMain extends Component {
         console.log(props)
         
     }
-    // handleCheck(id){
-    //     this.props.actions.checkFun(id);
-    // }
-    // handleRemove(id){
-    //     this.props.actions.removeFun(id);
-    // }
-
     
     render() {
         return (
