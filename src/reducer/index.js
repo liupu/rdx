@@ -18,6 +18,11 @@ const initState = [
         id: 4,
         text: 'you should go to school',
         done: false
+    },
+    {
+        id: 5,
+        text: 'get friends for dinner',
+        done: false
     }
 ]
 export default (state = initState, action) => {
@@ -37,7 +42,10 @@ export default (state = initState, action) => {
                     text:action.txt,
                     done:false
                 }
-            ]
+            ];
+            case 'UPDATE':
+            return state.map(item=>
+                item.id===action.id ? {...item, text:action.txt, done:false}:item)
         default:
             return state;
     }

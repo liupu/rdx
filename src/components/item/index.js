@@ -2,37 +2,51 @@ import React, { Component } from 'react';
 import './index.css';
 
 export default class Item extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             onEdit: false
         }
     }
-    getContent(){
-        if(this.state.onEdit){
-            return<input type='text'/>
-        }else{
+    handleContent(){
+        const contentTxt = this.refs.contentTxt.value;
+        this.setState({ onEdit: false });
+        contentTxt ? this.props.actions.changeItem(this.props.item.id, contentTxt) : ''
+    }
+    handleBlur() {
+        this.handleContent();
+    }
+    handleKeyDown(event) {
+        if(event.keyCode === 13){
+            this.handleContent();
+        }
+    }
+    getContent() {
+        if (this.state.onEdit) {
+            return (<input ref='contentTxt'
+                type='text'
+                autoFocus
+                onBlur={this.handleBlur.bind(this)}
+                onKeyDown={this.handleKeyDown.bind(this)}
+            />)
+        } else {
             return <span>{this.props.item.text}</span>
         }
-        // this.setState({
-        //     onEdit:!this.state.onEdit
-        // })
     }
-    handleCheck(id){
+    handleCheck(id) {
         this.props.actions.checkFun(id);
     }
-    handleRemove(id){
+    handleRemove(id) {
         this.props.actions.removeFun(id);
     }
-    handleDbClick(){
+    handleDbClick() {
         this.setState({
-            onEdit:!this.state.onEdit
+            onEdit: !this.state.onEdit
         })
     }
-
     render() {
         const { item } = this.props;
-         return (
+        return (
             <div>
                 <input type='checkbox' checked={item.done} onChange={this.handleCheck.bind(this, item.id)} />
                 {' '}

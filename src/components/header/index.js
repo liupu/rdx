@@ -5,10 +5,15 @@ class Header extends Component{
         txtValue ? this.props.actions.addFun(txtValue):'';
         this.refs.txt.value='';
     }
+    handleKeyDown(event){
+        if(event.keyCode===13){
+            this.addTodo();
+        }
+    }
     render(){
         return (
             <div>
-                <input type='text' ref='txt'/>
+                <input type='text' ref='txt' onKeyDown={this.handleKeyDown.bind(this)}/>
                 {" "}
                 <input type='button' value='添加待做事项' onClick={this.addTodo.bind(this)}/>
             </div>
