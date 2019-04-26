@@ -24,7 +24,8 @@ const initState = [
         text: 'get friends for dinner',
         done: false
     }
-]
+];
+
 export default (state = initState, action) => {
     const { type } = action;
     switch (type) {

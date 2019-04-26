@@ -5,30 +5,29 @@ import Info from '../info';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
-class App extends Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
+
+class App extends Component {
+    render() {
+        const { actions, todos } = this.props;
         return (
             <div>
                 <p>Todo List</p>
-                <Header actions={this.props.actions}/>
-                <TodoListMain todos={this.props.todos} actions={this.props.actions}/>
-                <Info todos={this.props.todos}/>
+                <Header actions={actions} />
+                <TodoListMain todos={todos} actions={actions} />
+                <Info todos={todos} />
             </div>
         )
     }
 }
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state) => {
     return {
-        todos:state
+        todos: state
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        actions:bindActionCreators(actions,dispatch)
+        actions: bindActionCreators(actions, dispatch)
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -8,16 +8,16 @@ export default class Item extends Component {
             onEdit: false
         }
     }
-    handleContent(){
-        const contentTxt = this.refs.contentTxt.value;
+    handleContent() {
         this.setState({ onEdit: false });
-        contentTxt ? this.props.actions.changeItem(this.props.item.id, contentTxt) : ''
+        this.refs.contentTxt.value ?
+            this.props.actions.changeItem(this.props.item.id, this.refs.contentTxt.value) : ''
     }
     handleBlur() {
         this.handleContent();
     }
     handleKeyDown(event) {
-        if(event.keyCode === 13){
+        if (event.keyCode === 13) {
             this.handleContent();
         }
     }

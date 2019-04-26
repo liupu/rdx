@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-class Header extends Component{
+
+export default class Header extends Component{
     addTodo(){
-        const txtValue = this.refs.txt.value;
-        txtValue ? this.props.actions.addFun(txtValue):'';
+        this.refs.txt.value ? this.props.actions.addFun(this.refs.txt.value):'';
         this.refs.txt.value='';
     }
     handleKeyDown(event){
@@ -20,6 +20,3 @@ class Header extends Component{
         )
     }
 }
-
-
-export default Header;
