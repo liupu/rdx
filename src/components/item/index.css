@@ -1,0 +1,10 @@
+span{
+    width:260px;
+    display:inline-block;
+}
+li{
+    list-style-type: none;
+}
+input[type='checkbox']:checked + span{
+    text-decoration-line: line-through;
+}
