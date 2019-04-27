@@ -31,15 +31,15 @@ export default class TodoListMain extends Component {
                     });
             }
         }).call(this); 
-        return(
+        return (
             <div>
                 <ul>
-                    {filterTodos.map((item , index)=>{        
-                    return <Item key={index} item={item} actions={actions} />
+                    {filterTodos.map((item, index) => {
+                        return <Item key={index} item={item} actions={actions} />
                     })}
                 </ul>
-                <Info todos={todos} changerFilter={this.changerFilter.bind(this)}/>
-            </div>   
+                <Info todos={todos} changerFilter={this.changerFilter.bind(this)} />
+            </div>
         )
     }
 }

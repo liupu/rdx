@@ -22,16 +22,12 @@ export default class Item extends Component {
         }
     }
     getContent() {
-        if (this.state.onEdit) {
-            return (<input ref='contentTxt'
-                type='text'
-                autoFocus
-                onBlur={this.handleBlur.bind(this)}
-                onKeyDown={this.handleKeyDown.bind(this)}
-            />)
-        } else {
-            return <span>{this.props.item.text}</span>
-        }
+        return this.state.onEdit ? (<input ref='contentTxt'
+            type='text'
+            autoFocus
+            onBlur={this.handleBlur.bind(this)}
+            onKeyDown={this.handleKeyDown.bind(this)}
+        />) : <span>{this.props.item.text}</span>
     }
     handleCheck(id) {
         this.props.actions.checkFun(id);
