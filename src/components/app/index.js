@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../header';
 import TodoListMain from '../todolist';
-import Info from '../info';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
@@ -14,7 +13,6 @@ class App extends Component {
                 <p>Todo List</p>
                 <Header actions={actions} />
                 <TodoListMain todos={todos} actions={actions} />
-                <Info todos={todos} />
             </div>
         )
     }
