@@ -39,8 +39,7 @@ export default class TodoListMain extends Component {
                     })}
                 </ul>
                 <Info todos={todos} changerFilter={this.changerFilter.bind(this)}/>
-            </div>
-            
+            </div>   
         )
     }
 }
