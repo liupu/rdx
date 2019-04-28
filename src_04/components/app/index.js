@@ -8,7 +8,6 @@ import './index.css';
 class App extends Component {
     constructor(props) {
         super(props)
-        //console.log(props)
     }
     // componentDidMount(){
     //     alert('1')
@@ -16,10 +15,8 @@ class App extends Component {
     //     this.props.actions.changeR(inputNum);
     // }
     handleChange(){
-        //console.log('123')
         //const inputNum = this.refs.inputNum.value;
         const inputNum = 1;
-        //console.log(inputNum);
         this.props.actions.change(inputNum,"r");
     }
     render() {
